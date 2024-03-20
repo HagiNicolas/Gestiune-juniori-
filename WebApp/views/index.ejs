@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farul Constanta - Juniori</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="layout">
+      <div class="header">
+        <img class="logo" src="./logo-farul.svg" alt="logo Farul" />
+      </div>
+      <div class="main">
+        <h1>Juniori Farul Constanța</h1>
+        <div class="continut">
+            <% rooms.forEach(function(room) { %>
+              <div class="camere">
+                <div class="camereUp">
+                  <p class="numar"><b><%= room.NumarCamera %></b></p>
+                  <img src="./pen2.svg" class="edit" id="edit<%=room.NumarCamera%>" height="24px" width="24px" />
+                </div>
+                <div class="jucatorii jucatorii-front">
+                  <p class="jucator1"><%= room.players[0] %></p>
+                  <br />
+                  <p class="jucator2"><%= room.players[1] %></p>
+                </div>
+                <div class="jucatorii jucatorii-back">
+                  <form method="post" action="/submit">
+                    <input type="text" class="jucator1-back" name="juc1" placeholder="Nume jucator 1" value="" />
+                    <input type="text" class="jucator2-back" name="juc2" placeholder="Nume jucator 2" value="" />
+                    <br />
+                    <button class="save" type="submit">Save</button>
+                    <button class="cancel" type="button">Cancel</button>
+                    <input type="hidden" name="camera" value="<%= room.NumarCamera %>"></input>
+                  </form>
+                </div>
+              </div>
+            <% }); %>
+        
+          
+          <!-- 
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>101</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit101"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Andrei</p>
+              <br />
+              <p class="jucator2">Nicolas</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                name="jucator1"
+                placeholder="Nume jucator 1"
+                
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                name="jucator2"
+                placeholder="Nume jucator 2"
+                
+              />
+              <br />
+              <button class="save" type="submit">Save</button>
+              <button class="cancel" type="button">Cancel</button>
+              <input type="hidden" name="camera" value="101"></input>
+            </form>
+            </div>
+          </div>
+          
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>102</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit102"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknon</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="102"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>103</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit103"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="103"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>104</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit104"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="104"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>105</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit105"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="105"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>106</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit106"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="106"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>107</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit107"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="107"></input>
+              </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>108</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit108"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="108"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>109</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit109"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="109"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>110</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit110"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="110"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>111</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit110"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="111"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>112</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit112"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="112"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>113</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit113"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="113"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>201</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit201"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="201"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>202</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit202"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="202"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>203</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit203"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="203"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>204</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit204"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="204"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>205</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit205"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="205"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>206</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit206"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="206"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>207</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit207"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="207"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>208</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit208"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="208"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>209</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit209"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="209"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>210</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit210"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="210"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>211</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit211"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="211"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>212</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit212"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="212"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>213</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit213"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="213"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>301</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit301"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="301"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>302</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit302"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="302"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>303</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit303"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="303"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>304</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit304"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="304"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>305</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit305"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="305"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>306</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit306"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="306"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>307</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit307"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="307"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>308</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit308"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="308"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>309</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit309"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="309"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>310</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit310"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="310"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>311</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit311"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="311"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>312</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit312"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="312"></input>
+            </form>
+            </div>
+          </div>
+          <div class="camere">
+            <div class="camereUp">
+              <p class="numar"><b>313</b></p>
+              <img
+                src="./pen2.svg"
+                class="edit"
+                id="edit313"
+                height="24px"
+                width="24px"
+              />
+            </div>
+            <div class="jucatorii jucatorii-front">
+              <p class="jucator1">Unknown</p>
+              <br />
+              <p class="jucator2">Unknown</p>
+            </div>
+            <div class="jucatorii jucatorii-back">
+              <form method="post" action="/submit">
+              <input
+                type="text"
+                class="jucator1-back"
+                placeholder="Nume jucator 1"
+                value=""
+              />
+              <input
+                type="text"
+                class="jucator2-back"
+                placeholder="Nume jucator 2"
+                value=""
+              />
+              <br />
+              <button class="save">Save</button>
+              <button class="cancel">Cancel</button>
+              <input type="hidden" name="camera" value="313"></input>
+            </form>
+            </div>
+          </div>
+           -->
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
